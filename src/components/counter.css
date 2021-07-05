@@ -1,0 +1,15 @@
+.container_counter{
+    text-align: center;
+    align-items: center;
+}
+
+.button_counter{
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+.button_counter:hover{
+    transform: scale(1.1);
+}
