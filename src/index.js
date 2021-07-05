@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { configureStore } from '@reduxjs/toolkit'
+import { counterSlice } from './reducers/counterReducer';
+import { Provider } from 'react-redux';
+
+const store = configureStore({
+  reducer: {
+    counter: counterSlice.reducer
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
