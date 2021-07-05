@@ -3,17 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { configureStore } from '@reduxjs/toolkit'
-import { counterSlice } from './reducers/counterReducer';
-import {catSlice} from './reducers/catReducer'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { counterSlice } from './slices/counterReducer';
+import {catSlice} from './slices/catReducer'
 import { Provider } from 'react-redux';
+import { mySaga } from './saga/catSaga';
+import createSagaMiddleware from '@redux-saga/core';
+
+const sagaMiddleware = createSagaMiddleware()
 
 const store = configureStore({
   reducer: {
     counter: counterSlice.reducer,
     cat: catSlice.reducer
-  }
+  },
+  middleware:[...getDefaultMiddleware({thunk:false}),sagaMiddleware]
 })
+
+sagaMiddleware.run(mySaga)
 
 ReactDOM.render(
   <React.StrictMode>

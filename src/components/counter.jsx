@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './button';
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from '../reducers/counterReducer';
+import { increment, decrement } from '../slices/counterReducer';
 
 const Counter = () => {
     const countSelector = state => state.counter
