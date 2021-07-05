@@ -5,11 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit'
 import { counterSlice } from './reducers/counterReducer';
+import {catSlice} from './reducers/catReducer'
 import { Provider } from 'react-redux';
 
 const store = configureStore({
   reducer: {
-    counter: counterSlice.reducer
+    counter: counterSlice.reducer,
+    cat: catSlice.reducer
   }
 })
 
