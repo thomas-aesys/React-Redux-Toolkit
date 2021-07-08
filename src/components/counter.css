@@ -1,0 +1,10 @@
+.container_counter{
+    text-align: center;
+    align-items: center;
+}
+
+.button_flex{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
